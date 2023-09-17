@@ -1,0 +1,63 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+html,body{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    background: black;
+    overflow: hidden;
+}
+button{
+    position: relative;
+    height: 70px;
+    width: 200px;
+    margin: 0 35px;
+    border-radius: 50px;
+    border: none;
+    background: #111;
+    color: rgb(228, 228, 228);
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+button:first-child:hover{
+    background: linear-gradient(90deg, #00aeff, #ff45af, #ffe600, #46c4ff);
+    background-size: 400%;
+}
+button:last-child:hover{
+    background: linear-gradient(90deg, #ff45af, #ffe600, #ff3c00, #ff6191);
+    background-size: 400%;
+}
+button:first-child:before,
+button:last-child:before{
+    content: '';
+    position: absolute;
+    background: inherit;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border-radius: 50px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+button:first-child:hover:before,
+button:last-child:hover:before{
+    opacity: 1;
+    z-index: -1;
+}
+button:hover{
+    z-index: 1;
+    animation: glowing 8s linear infinite;
+}
+@keyframes glowing {
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
